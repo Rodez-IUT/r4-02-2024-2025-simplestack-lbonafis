@@ -41,7 +41,7 @@ public class SimpleStack implements Stack {
      * Looks at the object at the top of this stack without removing it from the stack.
      */
     @Override
-    public Item peek() throws EmptyStackException {
+    public Item peek() {
         return this.liste.get(liste.size()-1);
     }
 
@@ -53,6 +53,9 @@ public class SimpleStack implements Stack {
      */
     @Override
     public Item pop() throws EmptyStackException {
+        if (this.getSize() == 0) {
+            throw new EmptyStackException();
+        }
         return this.liste.remove(liste.size()-1);
     }
 }
